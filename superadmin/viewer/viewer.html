@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TransparaTech Viewer Dashboard</title>
+    <link rel="stylesheet" href="viewer.css">
+    <script>
+        function showSection(section) {
+            document.querySelectorAll('.section').forEach(s => s.style.display = 'none');
+            document.getElementById(section).style.display = 'block';
+        }
+        function showFilter(tag) {
+            document.querySelectorAll('.filter').forEach(btn => btn.classList.remove('active'));
+            document.getElementById('filter-' + tag).classList.add('active');
+            document.querySelectorAll('.doc-card').forEach(card => {
+                if (tag === 'all' || card.getAttribute('data-tag') === tag) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+        window.onload = function() {
+            showSection('dashboard');
+        };
+    </script>
+</head>
+<body>
+    <aside class="sidebar">
+        <div>
+            <div class="user-panel" onclick="showSection('profile')" style="cursor:pointer;">
+                <span class="user-avatar">V</span>
+                <span class="user-name">Juan Viewer</span>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active" onclick="showSection('dashboard')">Dashboard</li>
+                </ul>
+            </nav>
+        </div>
+        <button class="signout-btn">Sign Out</button>
+    </aside>
+    <main class="main-content">
+        <section class="section" id="dashboard">
+            <section class="stats-row">
+                <div class="stat-card">
+                    <span class="stat-label">Total Expenses</span>
+                    <span class="stat-value">₱565,000</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Total Budget</span>
+                    <span class="stat-value">₱800,000</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Remaining Budget</span>
+                    <span class="stat-value">₱235,000</span>
+                </div>
+            </section>
+            <section class="controls-row">
+                <input type="text" class="search-bar" placeholder="Search documents..." />
+                <div class="doc-filters">
+                    <button id="filter-all" class="filter active" onclick="showFilter('all')">All</button>
+                    <button id="filter-financial" class="filter" onclick="showFilter('financial')">Financial Report</button>
+                    <button id="filter-turnover" class="filter" onclick="showFilter('turnover')">Turnover of Funds & Assets</button>
+                    <button id="filter-receipt" class="filter" onclick="showFilter('receipt')">Official Receipt</button>
+                </div>
+            </section>
+            <section class="documents-list">
+                <div class="doc-card" data-tag="financial">
+                    <span class="doc-icon">&#128196;</span>
+                    <div class="doc-content">
+                        <span class="doc-title">Annual Expense Statement</span>
+                        <span class="doc-type">Financial Report</span>
+                        <span class="doc-desc">Summary for university programs and events</span>
+                        <span class="doc-meta">01/15/2024 · 2.3 MB · PDF</span>
+                    </div>
+                    <div class="doc-actions">
+                        <button class="view-btn">View</button>
+                        <button class="download-btn">Download</button>
+                    </div>
+                </div>
+                <div class="doc-card" data-tag="turnover">
+                    <span class="doc-icon">&#128196;</span>
+                    <div class="doc-content">
+                        <span class="doc-title">Fund & Asset Turnover - Semester 1</span>
+                        <span class="doc-type">Turnover of Funds & Assets</span>
+                        <span class="doc-desc">Detailed turnover report for departments</span>
+                        <span class="doc-meta">01/10/2024 · 1.1 MB · PDF</span>
+                    </div>
+                    <div class="doc-actions">
+                        <button class="view-btn">View</button>
+                        <button class="download-btn">Download</button>
+                    </div>
+                </div>
+                <div class="doc-card" data-tag="receipt">
+                    <span class="doc-icon">&#128196;</span>
+                    <div class="doc-content">
+                        <span class="doc-title">Q3 Official Receipt File</span>
+                        <span class="doc-type">Official Receipt</span>
+                        <span class="doc-desc">All official receipts for third quarter budget</span>
+                        <span class="doc-meta">12/20/2023 · 1.8 MB · PDF</span>
+                    </div>
+                    <div class="doc-actions">
+                        <button class="view-btn">View</button>
+                        <button class="download-btn">Download</button>
+                    </div>
+                </div>
+                <div class="doc-card" data-tag="financial">
+                    <span class="doc-icon">&#128196;</span>
+                    <div class="doc-content">
+                        <span class="doc-title">Campus Development Proposal</span>
+                        <span class="doc-type">Financial Report</span>
+                        <span class="doc-desc">Strategic development projects for PUPSMB</span>
+                        <span class="doc-meta">12/15/2023 · 4.2 MB · PDF</span>
+                    </div>
+                    <div class="doc-actions">
+                        <button class="view-btn">View</button>
+                        <button class="download-btn">Download</button>
+                    </div>
+                </div>
+            </section>
+        </section>
+        <!-- User Profile Main Section -->
+        <section class="section" id="profile" style="display:none;">
+            <div class="profile-card">
+                <span class="profile-avatar">V</span>
+                <span class="profile-fullname">Juan Viewer</span>
+                <span class="profile-email">juan.viewer@pup.edu.ph</span>
+                <span class="profile-status-tag">Online</span>
+                <span class="profile-role">Transparency Viewer</span>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

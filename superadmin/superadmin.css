@@ -1,0 +1,356 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f4f8fb; /* lighter blue background */
+    color: #23395d;
+    display: flex;
+}
+
+.sidebar {
+    width: 260px;
+    height: 100vh;
+    background: #1a3a6b; /* deep blue */
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.03);
+}
+
+.brand {
+    padding: 32px 24px 16px 24px;
+    border-bottom: 1px solid #23509c;
+}
+
+.brand h2 {
+    font-size: 1.7em;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav ul li {
+    padding: 18px 35px;
+    cursor: pointer;
+    transition: background 0.2s;
+    border-left: 4px solid transparent;
+    font-size: 1.06em;
+    margin-bottom: 2px;
+}
+
+nav ul li.active, nav ul li:hover {
+    background: #23509c; /* lighter blue */
+    border-left: 4px solid #fff;
+}
+
+.profile {
+    padding: 24px 24px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 0.97em;
+    background: #204080; /* blue */
+    border-top: 1px solid #23509c;
+}
+
+.profile-icon {
+    display: inline-block;
+    background: #fff;
+    color: #1a3a6b;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    text-align: center;
+    line-height: 45px;
+    font-weight: bold;
+    font-size: 1.25em;
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.profile-name {
+    font-size: 1.08em;
+    font-weight: 600;
+    color: #fff;
+}
+
+.profile-email {
+    font-size: 0.95em;
+    color: #fff;
+    opacity: 0.8;
+}
+
+.profile-status {
+    display: inline-block;
+    margin-top: 4px;
+    padding: 2px 13px;
+    border-radius: 11px;
+    font-size: 0.93em;
+    font-weight: 500;
+    background: #6fd0ff;
+    color: #0a3c6f;
+    width: fit-content;
+}
+
+.profile-status.online { background: #6fd0ff; color: #1277b3; }
+.profile-status.active { background: #1a9cff; color: #fff; }
+.profile-status.away { background: #ffe877; color: #8f7a21; }
+
+.main-content {
+    flex: 1;
+    padding: 34px 38px;
+    background: #f4f8fb;
+    min-height: 100vh;
+}
+
+header h1 {
+    font-size: 2.2em;
+    color: #1a3a6b;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.subtitle {
+    color: #3b5b8c;
+    font-size: 1.02em;
+    margin-bottom: 28px;
+}
+
+.overview-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 23px;
+    margin-bottom: 32px;
+}
+
+.card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 14px #b3c7e6;
+    padding: 26px 20px;
+    transition: box-shadow 0.25s;
+    position: relative;
+}
+
+.card:hover {
+    box-shadow: 0 4px 25px #a3b9d6;
+}
+
+.card h3 {
+    font-size: 1.18em;
+    color: #1a3a6b;
+    margin-bottom: 14px;
+}
+
+.card p {
+    font-size: 1.38em;
+    font-weight: 500;
+}
+
+.rate {
+    font-size: 0.85em;
+    margin-left: 12px;
+}
+
+.up { color: #188b55; }
+.down { color: #d33; }
+
+.activity-panel {
+    display: flex;
+    gap: 28px;
+}
+
+.activity-section, .system-section {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px #b3c7e6;
+    padding: 22px 18px 16px 22px;
+    flex: 1;
+}
+
+.activity-section h2, .system-section h2 {
+    color: #1a3a6b;
+    font-size: 1.07em;
+    margin-bottom: 17px;
+}
+
+.activity-section ul {
+    list-style: none;
+}
+
+.activity-section li, .system-section li {
+    margin-bottom: 8px;
+    font-size: 1em;
+    display: flex;
+    align-items: center;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.dot.red { background: #e03c3c; }
+.dot.blue { background: #2479b9; }
+.dot.green { background: #6fd0ff; }
+.dot.yellow { background: #ffc94d; }
+
+.org {
+    font-weight: 500;
+    color: #1a3a6b;
+    margin: 0 4px;
+}
+
+.time {
+    color: #999;
+    font-size: 0.93em;
+    margin-left: 7px;
+}
+
+.system-section ul {
+    margin-top: 12px;
+}
+
+.system-section strong {
+    color: #1a3a6b;
+}
+
+@media (max-width: 1000px) {
+    .overview-cards {
+        grid-template-columns: 1fr 1fr;
+    }
+    .activity-panel {
+        flex-direction: column;
+    }
+    aside.sidebar {
+        width: 200px;
+    }
+}
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 18px;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px #b3c7e6;
+}
+
+.data-table th, .data-table td {
+    padding: 13px 14px;
+    text-align: left;
+}
+
+.data-table th {
+    background: #e6f0fa;
+    color: #1a3a6b;
+    font-size: 1em;
+}
+
+.data-table tr:nth-child(even) {
+    background: #f4f8fb;
+}
+
+.status {
+    padding: 3px 13px;
+    border-radius: 8px;
+    font-size: .95em;
+}
+
+.status.active { background: #d0f0fa; color: #1987d7; }
+.status.approved { background: #d7eafd; color: #156fad; }
+.status.rejected { background: #ffe4e4; color: #dc3545; }
+.status.pending { background: #fffbe4; color: #ffc107; }
+
+.activity-list {
+    list-style: none;
+    margin-top: 12px;
+}
+
+.activity-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid #e6f0fa;
+    font-size: 1em;
+}
+
+.profile-link {
+    color: #fff;
+    text-decoration: underline;
+    transition: color 0.15s;
+}
+.profile-link:hover {
+    color: #6fd0ff;
+}
+.contact-modal {
+    position: fixed;
+    left: 25px;
+    bottom: 80px;
+    background: #fff;
+    color: #1a3a6b;
+    border-radius: 14px;
+    box-shadow: 0 6px 24px #23509c55;
+    z-index: 1000;
+    min-width: 280px;
+    max-width: 320px;
+}
+.modal-content {
+    padding: 24px 22px 16px 22px;
+}
+.close-btn {
+    margin-top: 18px;
+    background: #1a3a6b;
+    color: #fff;
+    border: none;
+    padding: 7px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+}
+.close-btn:hover {
+    background: #23509c;
+}
+.contact-modal h3 {
+    margin-top: 0;
+    font-size: 1.12em;
+}
+.contact-modal p {
+    font-size: 1em;
+    margin: 7px 0 1px 0;
+}
+.contact-modal a {
+    color: #23509c;
+    text-decoration: underline;
+}
+
+.contact-panel {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 14px #b3c7e6;
+    padding: 30px 25px;
+    width: 100%;
+    max-width: 400px;
+    margin-top: 16px;
+}
+
+.contact-panel p {
+    font-size: 1.08em;
+    margin: 12px 0 2px 0;
+}
+
+.contact-panel strong { color: #1a3a6b; }
+.contact-panel a { color: #1a3a6b; text-decoration: underline; }

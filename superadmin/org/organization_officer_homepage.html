@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Organization Officer Homepage | TransparaTech</title>
+  <link rel="stylesheet" href="organization_officer_homepage.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Top Navigation -->
+  <header class="topbar">
+    <div class="portal-info">
+      <span class="portal-logo">TT</span>
+      <div>
+        <h1>TransparaTech</h1>
+        <p>PUP Sta. Maria Campus Transparency Portal</p>
+      </div>
+    </div>
+    <div class="user-info">
+      <span class="notif-dot"></span>
+      <span class="user-name">Juan Dela Cruz</span>
+      <span class="avatar">JD</span>
+      <div class="user-role">Organizations Officer</div>
+    </div>
+  </header>
+
+  <!-- Dashboard Summary Cards -->
+  <section class="dashboard-summary">
+    <div class="summary-card total">
+      <div class="summary-icon summary-icon-doc"><span>&#128196;</span></div>
+      <h2>4</h2>
+      <p>Total Documents</p>
+    </div>
+    <div class="summary-card pending">
+      <div class="summary-icon summary-icon-pending"><span>&#9203;</span></div>
+      <h2>2</h2>
+      <p>Pending Review</p>
+    </div>
+    <div class="summary-card approved">
+      <div class="summary-icon summary-icon-approved"><span>&#10003;</span></div>
+      <h2>1</h2>
+      <p>Approved</p>
+    </div>
+    <div class="summary-card rejected">
+      <div class="summary-icon summary-icon-rejected"><span>&#10060;</span></div>
+      <h2>1</h2>
+      <p>Rejected</p>
+    </div>
+  </section>
+
+  <!-- Navigation Tabs -->
+  <div class="tabs">
+    <button class="tab active" data-tab="documents">📁 My Documents</button>
+    <button class="tab" data-tab="upload">⬆️ Upload</button>
+    <button class="tab" data-tab="activity">📊 Activity</button>
+  </div>
+
+  <!-- My Documents Tab -->
+  <section class="tab-content active" id="documents">
+    <h2>My Documents</h2>
+    <p>Track and manage your submitted documents.</p>
+    <div class="document-card approved">
+      <div class="doc-header">
+        <h3>Financial Report Q3 2025</h3>
+        <span class="status approved">Approved</span>
+      </div>
+      <p class="doc-meta">📅 Oct 1, 2025 • Financial Report</p>
+      <div class="progress-bar green"><div class="progress" style="width:100%"></div></div>
+      <p class="progress-text">Review Progress: 100%</p>
+      <div class="auditor-comment">
+        <p><strong>Maria Santos (Auditor):</strong> All financial records are accurate and properly documented. Approved for publication.</p>
+        <small>10/5/2025</small>
+      </div>
+      <button class="view-btn">View Details</button>
+    </div>
+    <div class="document-card rejected">
+      <div class="doc-header">
+        <h3>Budget Proposal 2026</h3>
+        <span class="status rejected">Rejected</span>
+      </div>
+      <p class="doc-meta">📅 Sep 28, 2025 • Budget Proposal</p>
+      <div class="progress-bar red"><div class="progress" style="width:100%"></div></div>
+      <p class="progress-text">Review Progress: 100%</p>
+      <div class="auditor-comment">
+        <p><strong>Juan Dela Cruz (Auditor):</strong> Please revise the budget breakdown for events. Some allocations need more detailed justification.</p>
+        <small>10/2/2025</small>
+      </div>
+      <button class="view-btn">View Details</button>
+    </div>
+    <div class="document-card pending">
+      <div class="doc-header">
+        <h3>Monthly Accomplishment Report</h3>
+        <span class="status pending">Pending</span>
+      </div>
+      <p class="doc-meta">📅 Oct 12, 2025 • Accomplishment Report</p>
+      <div class="progress-bar yellow"><div class="progress" style="width:50%"></div></div>
+      <p class="progress-text">Review Progress: 50%</p>
+      <button class="view-btn">View Details</button>
+    </div>
+  </section>
+
+  <!-- Upload Tab -->
+  <section class="tab-content" id="upload">
+    <h2>Upload a New Document</h2>
+    <form class="upload-form">
+      <label>Document Title</label>
+      <input type="text" placeholder="Enter title (e.g., Annual Report 2025)" />
+      <label>Document Type</label>
+      <select>
+        <option>Financial Report</option>
+        <option>Budget Proposal</option>
+        <option>Accomplishment Report</option>
+      </select>
+      <label>Upload File</label>
+      <input type="file" />
+      <button type="submit" class="upload-btn">Submit Document</button>
+    </form>
+  </section>
+
+  <!-- Activity Tab -->
+  <section class="tab-content" id="activity">
+    <h2>Recent Activity</h2>
+    <ul class="activity-log">
+      <li><strong>10/12/2025:</strong> Uploaded Monthly Accomplishment Report</li>
+      <li><strong>10/5/2025:</strong> Financial Report Q3 2025 approved</li>
+      <li><strong>10/2/2025:</strong> Budget Proposal 2026 rejected</li>
+      <li><strong>9/28/2025:</strong> Submitted Budget Proposal 2026 for review</li>
+    </ul>
+  </section>
+
+  <!-- Tab Switching Script -->
+  <script>
+    const tabs = document.querySelectorAll(".tab");
+    const tabContents = document.querySelectorAll(".tab-content");
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        tabs.forEach((t) => t.classList.remove("active"));
+        tab.classList.add("active");
+        const target = tab.getAttribute("data-tab");
+        tabContents.forEach((content) => {
+          content.classList.remove("active");
+          if (content.id === target) content.classList.add("active");
+        });
+      });
+    });
+  </script>
+</body>
+</html>

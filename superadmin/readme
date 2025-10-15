@@ -1,0 +1,56 @@
+# TransparaTech Superadmin Portal
+
+This project is the **TransparaTech Superadmin Portal** for the PUP Sta. Maria Campus Transparency Portal. It provides a dashboard and management interface for super administrators, auditors, and organization officers to manage users, documents, and activities.
+
+## Features
+
+- **Dashboard**: Overview of users, documents, and activities.
+- **User Management**: Add, edit, and manage users.
+- **Document Management**: Review, approve, or reject submitted documents.
+- **Activity Log**: Track recent actions and system events.
+- **Profile & Contact Modal**: View and update superadmin contact information.
+- **Responsive Design**: Works well on desktop and mobile devices.
+
+## Folder Structure
+
+```
+superadmin/
+│
+├── auditor/
+│   ├── auditor_homepage.html
+│   └── auditor_homepage.css
+│
+├── org/
+│   └── organization_officer_homepage.css
+│
+├── viewer/
+│   └── viewer.css
+│
+├── superadmin.html
+├── superadmin.css
+└── readme
+```
+
+## Getting Started
+
+1. **Clone the repository**  
+   ```
+   git clone https://github.com/your-username/your-repo.git
+   ```
+
+2. **Open the folder in VS Code or your preferred editor.**
+
+3. **Open `superadmin.html` in your browser to view the dashboard.**
+
+## Customization
+
+- Update organization, user, and document data in the HTML files as needed.
+- Modify CSS files for branding or layout changes.
+
+## License
+
+This project is for educational and demonstration purposes at PUP Sta. Maria Campus.
+
+---
+
+**TransparaTech** &copy; 2025

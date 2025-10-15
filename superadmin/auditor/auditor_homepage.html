@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Auditor Homepage | TransparaTech</title>
+  <link rel="stylesheet" href="auditor_homepage.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- TOP NAV -->
+  <header class="topbar">
+      <a href="auditor_homepage.html" class="portal-info" style="text-decoration:none; color:inherit;">
+        <span class="portal-logo">T</span>
+        <div>
+          <h1>TransparaTech</h1>
+          <p>PUP Sta. Maria Campus Transparency Portal</p>
+        </div>
+      </a>
+      <div class="search-wrapper">
+        <input id="searchbar" type="text" placeholder="Search documents, organizations, or reports..." />
+      </div>
+      <div class="user-box">
+        <span class="notif-dot"></span>
+        <span class="user-role-top">Auditor</span>
+        <span class="avatar-top" onclick="showSection('user-profile-section')">AU</span>
+        <span class="user-admin-top">Admin</span>
+      </div>
+    </header>
+
+  <!-- DASHBOARD CARDS & MAIN GRID -->
+  <section id="main-dashboard-section" class="section">
+    <div class="dashboard-summary">
+      <div class="summary-card total">
+        <div class="summary-icon summary-icon-doc">&#128462;</div>
+        <h2>124</h2>
+        <p>Total Submitted</p>
+      </div>
+      <div class="summary-card pending">
+        <div class="summary-icon summary-icon-pending">&#9203;</div>
+        <h2>18</h2>
+        <p>Pending Review</p>
+      </div>
+      <div class="summary-card approved">
+        <div class="summary-icon summary-icon-approved">&#10003;</div>
+        <h2>89</h2>
+        <p>Approved</p>
+      </div>
+      <div class="summary-card rejected">
+        <div class="summary-icon summary-icon-rejected">&#10060;</div>
+        <h2>17</h2>
+        <p>Rejected</p>
+      </div>
+    </div>
+
+    <div class="main-grid">
+      <!-- LEFT: Document Queue -->
+      <div class="queue-pane">
+        <h2>Document Review Queue <span class="pending-tag">2 Pending</span></h2>
+
+        <div class="doc-card pending" data-title="Annual Activity Report 2024">
+          <div class="doc-summary">
+            <h3>Annual Activity Report 2024</h3>
+            <span class="org-link">Engineering Council</span>
+            <p class="doc-desc">Comprehensive annual report detailing all activities, events, and accomplishments for the year 2024.</p>
+            <div class="doc-info">
+              <span class="doc-meta">
+                <span class="doc-author">&#128100; Maria Santos</span>
+                <span class="doc-date">&#128197; 2025-10-12</span>
+              </span>
+            </div>
+          </div>
+          <textarea class="doc-note" placeholder="Add notes or feedback about this document..."></textarea>
+          <div class="doc-actions">
+            <button class="preview-btn" onclick="showPreviewModal('Annual Activity Report 2024')">Preview</button>
+            <button class="approve-btn" onclick="showFeedback('Approved')">Approve</button>
+            <button class="reject-btn" onclick="showFeedback('Rejected')">Reject</button>
+          </div>
+        </div>
+
+        <div class="doc-card pending" data-title="Project Proposal: Tech Summit 2025">
+          <div class="doc-summary">
+            <h3>Project Proposal: Tech Summit 2025</h3>
+            <span class="org-link">IT Student Council</span>
+            <p class="doc-desc">Detailed proposal for the upcoming Tech Summit including budget breakdown, timeline, and expected outcomes.</p>
+            <div class="doc-info">
+              <span class="doc-meta">
+                <span class="doc-author">&#128100; Pedro Garcia</span>
+                <span class="doc-date">&#128197; 2025-10-13</span>
+              </span>
+            </div>
+          </div>
+          <textarea class="doc-note" placeholder="Add notes or feedback about this document..."></textarea>
+          <div class="doc-actions">
+            <button class="preview-btn" onclick="showPreviewModal('Project Proposal: Tech Summit 2025')">Preview</button>
+            <button class="approve-btn" onclick="showFeedback('Approved')">Approve</button>
+            <button class="reject-btn" onclick="showFeedback('Rejected')">Reject</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Review/Activity Stats -->
+      <div class="stats-pane">
+        <div class="recent-activity-box">
+          <h3>Recent Activity</h3>
+          <ul class="activity-log">
+            <li><span class="activity approved">&#10003;</span> <span>Approved Budget Plan 2025</span> <span class="activity-meta">2 hours ago</span></li>
+            <li><span class="activity rejected">&#10060;</span> <span>Rejected Event Proposal</span> <span class="activity-meta">5 hours ago</span></li>
+            <li><span class="activity approved">&#10003;</span> <span>Approved Financial Report Q4</span> <span class="activity-meta">1 day ago</span></li>
+            <li><span class="activity approved">&#10003;</span> <span>Approved Annual Report 2024</span> <span class="activity-meta">1 day ago</span></li>
+            <li><span class="activity rejected">&#10060;</span> <span>Rejected Funding Request</span> <span class="activity-meta">2 days ago</span></li>
+          </ul>
+        </div>
+        <div class="stats-box">
+          <h3>Review Statistics</h3>
+          <div class="stat-item">
+            <div class="stat-label"><span class="stat-icon">&#8599;</span> Approval Rate</div>
+            <div class="stat-val">84%</div>
+            <div class="stat-bar" style="background:#e8f5e9"><div class="stat-bar-fill" style="width:84%"></div></div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-label"><span class="stat-icon">&#128197;</span> Documents This Week</div>
+            <div class="stat-val">23 / 30</div>
+            <div class="stat-bar" style="background:#e3f2fd"><div class="stat-bar-fill" style="width:77%"></div></div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-label"><span class="stat-icon">&#128337;</span> Avg. Review Time</div>
+            <div class="stat-val">2.5 days</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-label"><span class="stat-icon">&#9203;</span> Pending Review</div>
+            <div class="stat-val">18</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-label"><span class="stat-icon">&#9989;</span> Reviewed Today</div>
+            <div class="stat-val">7</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Preview Modal -->
+  <div id="previewModal" class="modal" style="display:none;">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal('previewModal')">&times;</span>
+      <h2>Document Preview</h2>
+      <p id="previewTitle"></p>
+      <p>This is a sample document preview. Embed actual document here.</p>
+    </div>
+  </div>
+  <!-- Feedback Modal -->
+  <div id="feedbackModal" class="modal" style="display:none;">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal('feedbackModal')">&times;</span>
+      <h2 id="feedbackTitle"></h2>
+      <p id="feedbackResult"></p>
+    </div>
+  </div>
+  <!-- User Info Modal -->
+  <div id="userModal" class="modal" style="display:none;">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal('userModal')">&times;</span>
+      <h2>User Information</h2>
+      <div class="profile-block">
+        <span class="avatar-modal">AU</span>
+        <div>
+          <h3>Auditor Admin</h3>
+          <p>Email: auditor.admin@pup.edu.ph</p>
+          <p>Status: Online</p>
+          <p>Role: Auditor</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- User Profile Section -->
+  <section id="user-profile-section" class="section" style="display:none;">
+    <div class="profile-card-center">
+      <span class="profile-avatar-large">AU</span>
+      <h2 class="profile-username">Auditor Admin</h2>
+      <p class="profile-email">auditor.admin@pup.edu.ph</p>
+      <p class="profile-status">Status: Online</p>
+      <p class="profile-role">Role: Auditor</p>
+    </div>
+  </section>
+
+  <script>
+    // Search live filter
+    document.getElementById('searchbar').addEventListener('input', function() {
+      let q = this.value.toLowerCase();
+      document.querySelectorAll('.doc-card').forEach(card => {
+        let title = card.getAttribute('data-title').toLowerCase();
+        card.style.display = title.includes(q) ? 'block' : 'none';
+      });
+    });
+
+    // Section show/hide logic
+    function showSection(sectionId) {
+      document.querySelectorAll('.section').forEach(s => s.style.display = 'none');
+      document.getElementById(sectionId).style.display = 'block';
+    }
+    // For page load, show dashboard by default:
+    window.onload = function() {
+      showSection('main-dashboard-section');
+    };
+
+    // Preview modal
+    function showPreviewModal(docTitle) {
+      document.getElementById('previewModal').style.display = 'block';
+      document.getElementById('previewTitle').innerText = docTitle;
+    }
+    function showFeedback(result) {
+      document.getElementById('feedbackModal').style.display = 'block';
+      document.getElementById('feedbackTitle').innerText = result;
+      document.getElementById('feedbackResult').innerText = `Your action (${result}) has been recorded.`;
+    }
+    // User modal
+    function showUserModal() {
+      document.getElementById('userModal').style.display = 'block';
+    }
+
+    function closeModal(modalId) {
+      document.getElementById(modalId).style.display = 'none';
+    }
+  </script>
+</body>
+</html>
